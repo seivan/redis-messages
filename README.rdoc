@@ -1,3 +1,6 @@
+== What is redis-messages
+  A messaging library with outbox/inbox system utilizing the power of both Redis and SQL. Using SQL for the outbox with user_id FK's and Redis for the inbox. A message has one sender, multiple recievers
+
 == Install
 
   gem install redis-messages
