@@ -14,11 +14,21 @@ group :development do
 end
 
 == Usage
-== Included Generators
-* rails g redis_messages  : Will name keys and models as User and Message and the Redis constant to R
+  * rails g redis_messages  : Will name keys and models as User and Message and the Redis constant to R
   
-* rails g redis_messages letter user : Assuming the User model already exist, this will inject code into it and create a Letter model.
+  * rails g redis_messages letter user : Assuming the User model already exist, this will inject code into it and create a Letter model.
 
-* rails g redis_messages letter player Red : Creates a Letter and Player model and names the Redis constant to Red
+  * rails g redis_messages letter player Red : Creates a Letter and Player model and names the Redis constant to Red
 
-* And don't forget to run your migrations since we also utilize SQL here.
+  * And don't forget to run your migrations since we also utilize SQL here.
+
+== Code
+Assuming we use standard naming the user model will have two scopes
+  user.outbox and user.inbox
+Where user.outbox will be pure SQL, while user.inbox will call smembers.
+
+Your message will also have a list of receivers
+  user.outbox.first.receivers
+
+To send a message to a list of people or just a single person (make sure you send in an array for version 0.1)
+  @message.send_to(a_list_of_usernames)
