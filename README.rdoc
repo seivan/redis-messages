@@ -1,0 +1,21 @@
+== Install
+
+  gem install redis-messages
+
+== Rails 3
+
+To use redis-messages with Rails 3 you will need to include it in your Gemfile.
+
+group :development do
+  gem "redis-messages"
+end
+
+== Usage
+== Included Generators
+* rails g redis-messages  : Will name keys and models as User and Message and the Redis constant to R
+  
+* rails g redis-messages letter user : Assuming the User model already exist, this will inject code into it and create a Letter model.
+
+* rails g redis-messages letter player Red : Creates a Letter and Player model and names the Redis constant to Red
+
+*And don't forget to run your migrations since we also utilize SQL here.
