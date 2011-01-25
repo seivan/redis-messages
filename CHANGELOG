@@ -1,2 +1,6 @@
+0.1.1 (January 25, 2010)
+Readme is now kick-ass
+I need to add a catch/try to make sure both arrays and strings for (in case you just send to a single person)
+
 0.1 (January 25, 2010)
 Doing initial Redis messages generator, will be a swift move to 1.0
